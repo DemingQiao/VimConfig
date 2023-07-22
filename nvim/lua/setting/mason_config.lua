@@ -1,16 +1,18 @@
-require("mason").setup()
+require("mason").setup(
+{ui = {
+        icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗"
+        }
+    }
+  })
 require("mason-lspconfig").setup {
-    ensure_installed = { "clangd"},
-}
-require("mason-nvim-dap").setup()
--- Setup language servers.
-local lspconfig = require('lspconfig')
-lspconfig.clangd.setup {}
-
-
+    ensure_installed = { "lua_ls", "rust_analyzer" ,"clangd"},
+} 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
+-- vim.keymap.set('n', '<space>q', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
