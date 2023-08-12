@@ -1,3 +1,2 @@
-require ("options")
-require ("plugin")
-require ("setting")
+require("options")
+require("lazy_packer")
